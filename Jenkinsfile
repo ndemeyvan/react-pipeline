@@ -2,6 +2,11 @@ pipeline {
 
     agent any
     stages{
+        stage ("Check Node Version"){
+        steps {
+                sh "node -v"
+            }  
+        }
 
         stage ("Build"){
             steps {
@@ -16,7 +21,6 @@ pipeline {
                 sh "sudo cp -r ${WORKSPACE}/build/ /var/www/react-app"
             }
         }
-
 
     }
 
